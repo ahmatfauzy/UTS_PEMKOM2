@@ -71,7 +71,7 @@ public class CRUD_23090109_A_2025 {
     private static void deleteData(MongoCollection<Document> collection) {
         Bson deleteFilter = Filters.eq("name", "Fauzyy aja"); // MENCARI MENGGUNAKAN KEY VALLUE
         long deletedCount = collection.deleteOne(deleteFilter).getDeletedCount(); // DELETEONE = HAPUS SATU
-        if (deletedCount > 0) {
+        if (deletedCount > 0) { // PERKONDISIAN UNTUK TES BERHASIL/TIDAK
             System.out.println("Dokumen berhasil dihapus.");
         } else {
             System.out.println("Tidak ada dokumen yang cocok untuk dihapus.");
@@ -80,9 +80,9 @@ public class CRUD_23090109_A_2025 {
 
     // SEARCH 
     private static void searchData(MongoCollection<Document> collection) {
-        Bson searchFilter = Filters.eq("name", "Ahmat Fauzi");
-        Document foundDocument = collection.find(searchFilter).first();
-        if (foundDocument != null) {
+        Bson searchFilter = Filters.eq("name", "Ahmat Fauzi");  // MENCARI MENGGUNAKAN KEY VALLUE
+        Document foundDocument = collection.find(searchFilter).first(); //FIND
+        if (foundDocument != null) { // PERKONDISIAN UNTUK TES BERHASIL/TIDAK
             System.out.println("Dokumen ditemukan:");
             System.out.println(foundDocument.toJson());
         } else {
